@@ -44,7 +44,8 @@ void	step_into(t_game *g, int nx, int ny)
 	{
 		ft_printf("Moves: %d\n", g->moves + 1);
 		sl_putendl("You win!");
-		close_win(g);
+		cleanup_game(g);
+		exit(0);
 	}
 	g->map.player_x = nx;
 	g->map.player_y = ny;

@@ -6,7 +6,7 @@
 /*   By: bfilipe- <bfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 12:00:00 by bfilipe-          #+#    #+#             */
-/*   Updated: 2025/09/01 14:36:20 by bfilipe-         ###   ########.fr       */
+/*   Updated: 2025/09/18 16:38:00 by bfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,6 @@ int	handle_key(int key, t_game *g)
 
 int	close_win(t_game *g)
 {
-	if (g->win)
-		mlx_destroy_window(g->mlx, g->win);
+	cleanup_game(g);
 	exit(0);
-	return (0);
 }

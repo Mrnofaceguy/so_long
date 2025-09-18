@@ -6,7 +6,7 @@
 /*   By: bfilipe- <bfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 12:00:00 by bfilipe-          #+#    #+#             */
-/*   Updated: 2025/09/03 12:50:57 by bfilipe-         ###   ########.fr       */
+/*   Updated: 2025/09/18 16:38:39 by bfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,20 @@ static int	process_lines(char *buf, char ***out, int *w, int *h)
 	{
 		(*out)[j] = read_line(buf, &i, &len);
 		if (!(*out)[j])
+		{
+			while (--j >= 0)
+				free((*out)[j]);
+			free(*out);
 			return (0);
+		}
 		if (*w == -1)
 			*w = len;
 		else if (len != *w)
 		{
 			*w = -1;
+			while (j >= 0)
+				free((*out)[j--]);
+			free(*out);
 			return (0);
 		}
 		j++;
@@ -81,8 +89,10 @@ char	**sl_split_lines(char *buf, int *h, int *w)
 
 	*h = count_lines_buf(buf);
 	out = (char **)sl_calloc(*h + 1, sizeof(char *));
+	if (!out)
+		return (NULL);
 	*w = -1;
 	if (!process_lines(buf, &out, w, h))
-		return (out);
+		return (NULL);
 	return (out);
 }

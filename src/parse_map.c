@@ -6,7 +6,7 @@
 /*   By: bfilipe- <bfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 12:00:00 by bfilipe-          #+#    #+#             */
-/*   Updated: 2025/09/03 14:44:16 by bfilipe-         ###   ########.fr       */
+/*   Updated: 2025/09/18 16:38:24 by bfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static char	*append_chunk(char *out, char *buf, int n)
 {
 	char	*chunk;
 	int		i;
+	char	*new_out;
 
 	chunk = (char *)malloc(n + 1);
 	if (!chunk)
@@ -30,9 +31,9 @@ static char	*append_chunk(char *out, char *buf, int n)
 		i++;
 	}
 	chunk[n] = 0;
-	out = sl_strjoin(out, chunk);
+	new_out = sl_strjoin(out, chunk);
 	free(chunk);
-	return (out);
+	return (new_out);
 }
 
 static char	*read_all(int fd)

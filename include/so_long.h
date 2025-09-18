@@ -6,7 +6,7 @@
 /*   By: bfilipe- <bfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 12:00:00 by bfilipe-          #+#    #+#             */
-/*   Updated: 2025/09/03 15:03:47 by bfilipe-         ###   ########.fr       */
+/*   Updated: 2025/09/18 16:29:40 by bfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int		init_game(t_game *g);
 int		render_all(t_game *g);
 int		handle_key(int keycode, t_game *g);
 int		close_win(t_game *g);
+void	cleanup_game(t_game *g);
 
 size_t	sl_strlen(const char *s);
 void	*sl_calloc(size_t n, size_t size);

@@ -15,7 +15,8 @@ SRC=\
 	src/render.c \
 	src/render_utils.c \
 	src/validate_map2.c \
-	src/validate_map3.c 
+	src/validate_map3.c \
+	src/game_clean.c
 
 
 OBJ=$(SRC:.c=.o)
